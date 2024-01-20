@@ -29,13 +29,13 @@ function App() {
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds/60);
-    seconds = seconds%60;
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
+    const remainingSeconds = seconds%60;
+    return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`
   }
   return (
     <div className="stopwatch">
       <h1>Stopwatch</h1>
-      <p>Time:{formatTime(elapsedTime)}</p>
+      <p>Time: {formatTime(elapsedTime)}</p>
       <button onClick={startStop}>{isRunning ? "Stop" : "Start"}</button>
       <button onClick={reset}>Reset</button>
     </div>
